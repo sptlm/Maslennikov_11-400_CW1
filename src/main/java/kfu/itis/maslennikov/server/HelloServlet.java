@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -15,7 +16,15 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
-        writer.println("Hello! This is answer to your GET request!");
+        writer.println("Hello! This is answer to your GET request! Your request parameters:");
+        Map<String, String[]> params = req.getParameterMap();
+        for (String key: params.keySet()){
+            writer.write(key + "=");
+            for (String s : params.get(key)){
+                writer.write(s + ", ");
+            }
+            writer.println();
+        }
     }
 
     @Override
