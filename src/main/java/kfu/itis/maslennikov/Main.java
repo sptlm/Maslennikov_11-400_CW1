@@ -21,10 +21,10 @@ public class Main {
         data.put("aboba", "draboba");
 
 
-        System.out.println("GET: " + httpClient.get("http://127.0.0.1:8080/CW1_war/hello", headers, params));
-        System.out.println("POST: " + httpClient.post("http://localhost:8080/CW1_war/hello", headers, data));
-        System.out.println("PUT: " + httpClient.put("http://localhost:8080/CW1_war/hello", headers, data));
-        System.out.println("DELETE: " + httpClient.delete("http://localhost:8080/CW1_war/hello", headers, data));
+        System.out.println("GET: " + httpClient.get("http://127.0.0.1:8080/CW1_war_exploded/hello", headers, params));
+        System.out.println("POST: " + httpClient.post("http://localhost:8080/CW1_war_exploded/hello", headers, data));
+        System.out.println("PUT: " + httpClient.put("http://localhost:8080/CW1_war_exploded/hello", headers, data));
+        System.out.println("DELETE: " + httpClient.delete("http://localhost:8080/CW1_war_exploded/hello", headers, data));
 
     }
 }
