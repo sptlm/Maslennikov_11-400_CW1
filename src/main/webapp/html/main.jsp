@@ -9,7 +9,7 @@
 <%
     String sessionUser = (String) session.getAttribute("user");
     if (sessionUser == null) {
-        response.sendRedirect("login.html");
+        response.sendRedirect("login.ftl");
     }
 
     String cookieUser = "";
@@ -35,8 +35,9 @@
     <br>
     Cookie user = <%=cookieUser%>
 </h3>
-<form method="get" action="index">
-    <input type="submit" value="Main page">
+
+<form method="get" action="logout">
+    <input type="submit" value="Log out">
 </form>
 
 </body>

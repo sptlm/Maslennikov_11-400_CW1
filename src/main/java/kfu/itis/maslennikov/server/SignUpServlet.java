@@ -12,7 +12,7 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("sign_up.html");
+        resp.sendRedirect("sign_up.ftl");
     }
 
     @Override
@@ -23,9 +23,9 @@ public class SignUpServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (Users.signUp(login, password)) {
-            resp.sendRedirect("registered.html");
+            resp.sendRedirect("registered.ftl");
         } else {
-            resp.sendRedirect("user_already_exists.html");
+            resp.sendRedirect("user_already_exists.ftl");
         }
     }
 }
