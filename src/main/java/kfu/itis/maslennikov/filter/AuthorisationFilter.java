@@ -17,6 +17,7 @@ public class AuthorisationFilter extends HttpFilter {
         String sessionUser = (String) req.getSession().getAttribute("user");
         if (!"admin".equals(sessionUser)) {
             res.sendRedirect("access_denied.ftl");
+            return;
         }
         chain.doFilter(req,res);
     }

@@ -1,5 +1,7 @@
 package kfu.itis.maslennikov.server;
 
+import kfu.itis.maslennikov.service.impl.UserServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +24,10 @@ public class SignUpServlet extends HttpServlet {
         // DONE: persist in memory (Map) login + pasword and after use it in LoginServlet instead of "login" and "password"
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (Users.signUp(login, password)) {
+        String name = req.getParameter("name");
+        String lastname = req.getParameter("lastname");
+
+        if (UserServiceImpl.signUp(login, password, name, lastname)) {
             resp.sendRedirect("registered.ftl");
         } else {
             resp.sendRedirect("user_already_exists.ftl");

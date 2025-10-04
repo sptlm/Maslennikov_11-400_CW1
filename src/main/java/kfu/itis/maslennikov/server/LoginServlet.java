@@ -1,5 +1,7 @@
 package kfu.itis.maslennikov.server;
 
+import kfu.itis.maslennikov.service.impl.UserServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -22,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        if (Users.checkPassword(login, password)) {
+        if (UserServiceImpl.checkPassword(login, password)) {
             // logic to authenticate user
 
             // session
@@ -37,7 +39,7 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(cookie);
 
             resp.sendRedirect("main");
-        } else if(Users.userExists(login)) {
+        } else if(UserServiceImpl.userExists(login)) {
             resp.sendRedirect("incorrect_password.ftl");
         }else {
             resp.sendRedirect("user_not_exists.ftl");

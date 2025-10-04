@@ -8,10 +8,10 @@
     <#if users?has_content>
         Таблица рекордов:
         <br>
-        Имя Очки
+        Логин Имя
         <br>
         <#list users as u>
-            ${u.name} ${u.score}
+            ${u.login} ${u.name}
             <br>
         </#list>
     </#if>

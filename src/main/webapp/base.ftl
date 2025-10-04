@@ -8,8 +8,6 @@
 <body>
 <div id="header">
     <h2> <strong>Garbage site</strong></h2>
-
-
     <table>
         <tr>
             <form method="get" action="index">
@@ -32,10 +30,9 @@
             </form>
         </tr>
     </table>
-
-
-
 </div>
+
+<hr>
 
 <div id="content">
     <div class="content">
