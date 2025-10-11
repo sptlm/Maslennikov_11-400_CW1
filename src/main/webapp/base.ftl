@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title><@title></@title></title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css",
+          rel = "stylesheet">
 </head>
 
 <body>
 <div id="header">
-    <h2> <strong>Garbage site</strong></h2>
+    <h2> <strong>Garbage website</strong></h2>
     <table>
         <tr>
             <form method="get" action="index">

@@ -1,1 +1,5 @@
-{"DBUrl":"jdbc:postgresql://localhost:5432/data_base","DBUser":"username","DBPassword":"password"}
+{
+  "DBUrl": "jdbc:postgresql://localhost:5432/data_base",
+  "DBUser": "username",
+  "DBPassword": "password"
+}
