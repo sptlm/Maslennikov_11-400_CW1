@@ -1,6 +1,8 @@
 package kfu.itis.maslennikov.server;
 
 import kfu.itis.maslennikov.dto.UserDto;
+import kfu.itis.maslennikov.service.UserService;
+import kfu.itis.maslennikov.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @WebServlet(name = "Main", urlPatterns = "/main")
 public class MainServlet extends HttpServlet {
+    UserService userService = new UserServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -41,6 +44,7 @@ public class MainServlet extends HttpServlet {
         req.setAttribute("cookieUser", cookieUser);
         req.setAttribute("sessionId", sessionId);
         req.setAttribute("sessionUser", sessionUser);
+        req.setAttribute("image", userService.getByLogin(sessionUser).getImage());
 
         //resp.sendRedirect("main.ftl");
         req.getRequestDispatcher("main.ftl").forward(req,resp);

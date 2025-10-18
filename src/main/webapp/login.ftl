@@ -3,7 +3,7 @@
 <#macro title>Login page</#macro>
 
 <script>
-    $(document).on("change", "#ajax-login", function (){
+    $(document).on("input", "#ajax-login", function (){
         console.log("Debug");
         $.get("ajax/user_exists?target=login&login=" + $("#ajax-login").val(), function (response){
             $("#ajax-response").text(response)

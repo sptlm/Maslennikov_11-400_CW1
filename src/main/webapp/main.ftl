@@ -7,6 +7,7 @@
     <h2>Session tracker</h2>
 
     <#if sessionUser?has_content>
+        <image src=${image}>
         <h3>
             Hello, ${sessionUser}!
             <br>

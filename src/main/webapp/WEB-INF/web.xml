@@ -40,4 +40,15 @@
         <welcome-file>index.ftl</welcome-file>
     </welcome-file-list>
 
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/html/404.html</location>-->
+<!--    </error-page>-->
+    <error-page>
+        <location>/handle</location>
+    </error-page>
+
+
+
+
 </web-app>

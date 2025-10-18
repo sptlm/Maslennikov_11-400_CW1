@@ -3,12 +3,16 @@ package kfu.itis.maslennikov.dto;
 public class UserDto {
 
     private String name;
+    private String lastname;
+    private String image;
 
     private String login;
 
-    public UserDto(String name, String login) {
+    public UserDto(String name, String login, String lastname, String image) {
         this.name = name;
         this.login = login;
+        this.lastname = lastname;
+        this.image = image;
     }
 
     public String getName() {
@@ -17,5 +21,13 @@ public class UserDto {
 
     public String getLogin() {
         return login;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

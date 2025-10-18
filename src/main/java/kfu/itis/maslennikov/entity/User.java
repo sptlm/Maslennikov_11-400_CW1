@@ -10,12 +10,15 @@ public class User {
     private String name;
     private String lastname;
 
-    public User(Integer id, String login, String password, String name, String lastname) {
+    private String image;
+
+    public User(Integer id, String login, String password, String name, String lastname, String image) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.name = name;
         this.lastname = lastname;
+        this.image = image;
     }
 
     public User(){}
@@ -38,5 +41,9 @@ public class User {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public String getImage() {
+        return image;
     }
 }
