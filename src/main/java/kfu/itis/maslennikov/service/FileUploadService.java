@@ -1,26 +1,30 @@
 package kfu.itis.maslennikov.service;
 
+import kfu.itis.maslennikov.util.AppConfig;
+import kfu.itis.maslennikov.util.AppConfigUtil;
+
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileUploadService {
-    public static final String IMAGE_PREFIX = "images";
-    public static final String IMAGES_DIRECTORY = "src\\main\\webapp\\" + IMAGE_PREFIX;
     public static final int DIRECTORIES_COUNT = 100;
+    private static final Path filesDirectory = Paths.get(AppConfigUtil.loadConfig().FilesDirectory()).toAbsolutePath().normalize();
+
 
     /// returns file path from webapp
     public static String uploadFile(Part part) throws IOException {
+
         String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
-        String path = IMAGES_DIRECTORY + File.separator
-                + Math.abs(filename.hashCode()) % DIRECTORIES_COUNT + File.separator
+        String path = Math.abs(filename.hashCode()) % DIRECTORIES_COUNT + "/"
                 + filename;
 
-        File file = new File(path);
+        File file = new File(filesDirectory + "/" + path);
 
         InputStream content = part.getInputStream();
         file.getParentFile().mkdirs();
@@ -30,9 +34,7 @@ public class FileUploadService {
         content.read(buffer);
         outputStream.write(buffer);
         outputStream.close();
-        return IMAGE_PREFIX + File.separator
-                + Math.abs(filename.hashCode()) % DIRECTORIES_COUNT + File.separator
-                + filename;
+        return path;
     }
 
 }

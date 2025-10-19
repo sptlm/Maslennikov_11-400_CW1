@@ -26,8 +26,6 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // registration
-
-        // DONE: persist in memory (Map) login + password and after use it in LoginServlet instead of "login" and "password"
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String name = req.getParameter("name");

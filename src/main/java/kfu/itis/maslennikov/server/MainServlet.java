@@ -44,10 +44,8 @@ public class MainServlet extends HttpServlet {
         req.setAttribute("cookieUser", cookieUser);
         req.setAttribute("sessionId", sessionId);
         req.setAttribute("sessionUser", sessionUser);
-        req.setAttribute("image", userService.getByLogin(sessionUser).getImage());
+        req.setAttribute("image", "file/" + userService.getByLogin(sessionUser).getImage());
 
-        //resp.sendRedirect("main.ftl");
         req.getRequestDispatcher("main.ftl").forward(req,resp);
     }
-
 }
