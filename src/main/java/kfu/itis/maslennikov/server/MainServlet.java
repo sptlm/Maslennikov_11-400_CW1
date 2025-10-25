@@ -45,6 +45,8 @@ public class MainServlet extends HttpServlet {
         req.setAttribute("sessionId", sessionId);
         req.setAttribute("sessionUser", sessionUser);
         req.setAttribute("image", "file/" + userService.getByLogin(sessionUser).getImage());
+        req.setAttribute("cloud_image", userService.getByLogin(sessionUser).getCloud_image());
+
 
         req.getRequestDispatcher("main.ftl").forward(req,resp);
     }

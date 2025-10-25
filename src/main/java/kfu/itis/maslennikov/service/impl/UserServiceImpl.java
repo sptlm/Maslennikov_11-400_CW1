@@ -11,6 +11,7 @@ import kfu.itis.maslennikov.util.PasswordUtil;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class UserServiceImpl implements UserService {
@@ -19,16 +20,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> getAll() {
-        return userDao.getAll().stream().map(u -> new UserDto(u.getName(), u.getLogin(), u.getLastname(), u.getImage())).collect(Collectors.toList());
+        return userDao.getAll().stream().map(u -> new UserDto(u.getName(), u.getLogin(), u.getLastname(), u.getImage(), u.getCloud_image())).collect(Collectors.toList());
     }
 
     public static boolean signUp(String login, String password, String name, String lastname, Part part){
         if (userDao.getByLogin(login) != null){
             return false;
         } else {
-            String path;
+            Map<String, String> paths;
             try {
-                path = FileUploadService.uploadFile(part);
+                paths = FileUploadService.uploadFile(part);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -38,7 +39,8 @@ public class UserServiceImpl implements UserService {
                             PasswordUtil.encrypt(password),
                             name,
                             lastname,
-                            path
+                            paths.get("image"),
+                            paths.get("cloud_image")
                     )
             );
             return true;
@@ -58,7 +60,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getByLogin(String login) {
         User u = userDao.getByLogin(login);
-        return  new UserDto(u.getName(), u.getLogin(), u.getLastname(), u.getImage());
+        return  new UserDto(u.getLogin(),u.getName(), u.getLastname(), u.getImage(), u.getCloud_image());
     }
 
 }

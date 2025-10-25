@@ -11,14 +11,16 @@ public class User {
     private String lastname;
 
     private String image;
+    private String cloud_image;
 
-    public User(Integer id, String login, String password, String name, String lastname, String image) {
+    public User(Integer id, String login, String password, String name, String lastname, String image, String cloud_image) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.name = name;
         this.lastname = lastname;
         this.image = image;
+        this.cloud_image = cloud_image;
     }
 
     public User(){}
@@ -45,5 +47,9 @@ public class User {
 
     public String getImage() {
         return image;
+    }
+
+    public String getCloud_image() {
+        return cloud_image;
     }
 }

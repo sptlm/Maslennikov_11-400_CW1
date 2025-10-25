@@ -2,5 +2,8 @@
   "DBUrl": "jdbc:postgresql://localhost:5432/data_base",
   "DBUser": "username",
   "DBPassword": "password",
-  "FilesDirectory": "/tmp/website_files"
+  "FilesDirectory": "/tmp/website_files",
+  "cloud_name":  "name",
+  "api_key":  "12345",
+  "api_secret": "SOMETHING123"
 }

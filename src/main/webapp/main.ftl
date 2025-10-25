@@ -8,6 +8,7 @@
 
     <#if sessionUser?has_content>
         <image src=${image}>
+        <image src=${cloud_image}>
         <h3>
             Hello, ${sessionUser}!
             <br>
@@ -19,6 +20,5 @@
         <h3>No session user. Please log in.</h3>
         <a href="login.ftl">Go to login</a>
     </#if>
-
 
 </#macro>

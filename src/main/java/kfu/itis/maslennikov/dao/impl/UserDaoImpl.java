@@ -34,7 +34,8 @@ public class UserDaoImpl implements UserDao {
                                     resultSet.getString("password"),
                                     resultSet.getString("name"),
                                     resultSet.getString("lastname"),
-                                    resultSet.getString("image"))
+                                    resultSet.getString("image"),
+                                    resultSet.getString("cloud_image"))
                     );
                 }
             }
@@ -47,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void save(User user) {
-        String sql = "insert into users (name, lastname, login, password, image) values(?, ?, ?, ?, ?)";
+        String sql = "insert into users (name, lastname, login, password, image, cloud_image) values(?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getName());
@@ -55,6 +56,7 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(3, user.getLogin());
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5,user.getImage());
+            preparedStatement.setString(6,user.getCloud_image());
 
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -86,7 +88,8 @@ public class UserDaoImpl implements UserDao {
                                     resultSet.getString("password"),
                                     resultSet.getString("name"),
                                     resultSet.getString("lastname"),
-                                    resultSet.getString("image")
+                                    resultSet.getString("image"),
+                                    resultSet.getString("cloud_image")
                             );
                 }
             }
